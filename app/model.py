@@ -1,7 +1,9 @@
 import os
+
 import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+
 
 class ImageClassifier:
     def __init__(self):
@@ -9,7 +11,7 @@ class ImageClassifier:
         self.model = load_model(model_path)
         self.class_names = os.getenv(
             "CLASS_NAMES",
-            "Tomato_Blight,Tomato_Healthy,Tomato_Spot,Tomato_YellowLeaf,Tomato_Bacterial,Tomato_Mosaic"
+            "Tomato_Blight,Tomato_Healthy,Tomato_Spot,Tomato_YellowLeaf,Tomato_Bacterial,Tomato_Mosaic",
         ).split(",")
 
     def predict(self, image_path: str):

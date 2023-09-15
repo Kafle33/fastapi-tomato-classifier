@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  classifier:
+    build: .
+    container_name: image-classifier
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    env_file:
+      - .env
+    volumes:
+      - ./model:/app/model
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]

@@ -1,4 +1,7 @@
-# Soil Moisture Analyzer
+
+
+# FastAPI Tomato Moisture Analyzer
+# Deploying a project on GitHub Pages (github.io) that uses an AI model like a .h5 file is not feasible, so please set up it in you machine and use it for free.
 
 This app checks water in tomato leaves. It uses AI to help you.
 

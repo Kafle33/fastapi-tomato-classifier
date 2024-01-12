@@ -1,2 +1,10 @@
 __pycache__/
 *.pyc
+.env
+.DS_Store
+.vscode/
+.idea/
+venv/
+env/
+*.log
+app/temp/

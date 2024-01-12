@@ -5,7 +5,8 @@
 
 This app checks water in tomato leaves. It uses AI to help you.
 
-![Soil Moisture Analyzer](app/static/screenshot.png)
+![Soil Moisture Analyzer Home](app/static/screenshot_home.png)
+![Soil Moisture Analyzer Result](app/static/screenshot_result.png)
 
 ## What it does
 

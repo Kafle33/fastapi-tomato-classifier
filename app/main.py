@@ -10,7 +10,7 @@ from fastapi.templating import Jinja2Templates
 
 from app.model import ImageClassifier
 
-# Setup paths
+# Config paths
 BASE_DIR = Path(__file__).resolve().parent
 STATIC_DIR = BASE_DIR / "static"
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -19,7 +19,7 @@ TEST_IMAGES_DIR = STATIC_DIR / "test_images"
 app = FastAPI()
 classifier = ImageClassifier()
 
-# Add CORS middleware to allow cross-origin requests (helpful for development/debugging)
+# Allow cross-origin requests for dev
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -28,7 +28,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Frontend templates & static
+# Templates & static files
 templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
@@ -40,7 +40,7 @@ def home(request: Request):
 
 @app.get("/demo-images")
 def get_demo_images():
-    """Return list of demo images from test_images folder."""
+    """Get demo images from the test folder."""
     if not TEST_IMAGES_DIR.exists():
         return {"images": []}
         
@@ -53,7 +53,7 @@ def get_demo_images():
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
-    # Ensure temp directory exists
+    # Make sure temp dir exists
     temp_dir = BASE_DIR / "temp"
     temp_dir.mkdir(exist_ok=True)
     
@@ -66,7 +66,7 @@ async def predict(file: UploadFile = File(...)):
         result = classifier.predict(str(temp_path))
         print("\n\n\nthis is result", result)
         
-        # Return JSON for the frontend JS
+        # Send result back to frontend
         return {
             "moisture_score": result["moisture_score"],
             "moisture_category": result["moisture_category"],
@@ -80,7 +80,7 @@ async def predict(file: UploadFile = File(...)):
         if temp_path.exists():
             os.remove(temp_path)
 
-# Handle GET requests to /predict to avoid 405 confusion
+# Catch GET requests to /predict
 @app.get("/predict")
 def predict_info():
     return JSONResponse(

@@ -15,17 +15,16 @@ class ImageClassifier:
         img = image.load_img(image_path, target_size=(224, 224))
         img_array = image.img_to_array(img)
         img_array = np.expand_dims(img_array, axis=0)
-        # Use MobileNetV2 standard preprocessing (scales to [-1, 1])
+        # Scale to [-1, 1] for MobileNetV2
         img_array = preprocess_input(img_array)
 
         predictions = self.model.predict(img_array)
         pred = predictions[0]
         
         # Calculate weighted moisture score (0-100)
-        # Assuming indices 0-5 represent an ordered scale of moisture levels
         moisture_score = float(sum(i * p for i, p in enumerate(pred)) / 5.0 * 100)
         
-        # Categorize based on weighted score
+        # Categorize the score
         if moisture_score < 30:
             category = "Low Moisture"
             suggestion = "Irrigation needed immediately."

@@ -1,64 +1,49 @@
 # Soil Moisture Analyzer
 
-An AI-powered application that analyzes soil moisture levels from tomato leaf images. Built with FastAPI, TensorFlow, and Docker.
+This app checks water in tomato leaves. It uses AI to help you.
 
 ![Soil Moisture Analyzer](app/static/screenshot.png)
 
-## Features
+## What it does
 
-- **Moisture Analysis**: Detects Low, Optimal, and High moisture levels.
-- **Smart Suggestions**: Provides actionable irrigation advice based on analysis.
-- **Demo Mode**: Includes a set of test images for quick demonstration.
-- **Modern UI**: Clean, responsive interface with dark mode support.
-- **Dockerized**: Easy to deploy with Docker Compose.
+- **Checks Moisture**: Tells if plant has Low, Good, or High water.
+- **Gives Advice**: Tells you if you need to water the plant.
+- **Test Images**: Has photos to try.
+- **Easy to Use**: Simple web page.
 
-## Prerequisites
+## What you need
 
-- Docker and Docker Compose
+- Docker
 - Git
 
-## Quick Start
+## How to run
 
-1. **Clone the repository:**
+1. **Get the code:**
    ```bash
    git clone https://github.com/yourusername/soil-moisture-analyzer.git
    cd soil-moisture-analyzer
    ```
 
-2. **Run with Docker Compose:**
+2. **Start the app:**
    ```bash
    docker compose up --build
    ```
 
-3. **Access the application:**
-   Open your browser and navigate to `http://localhost:8000`.
+3. **Open app:**
+   Go to your browser and type: `http://localhost:8000`
 
-## Usage
+## How to use
 
-1. **Select an Image**: Choose from the provided demo images or upload your own.
-2. **Analyze**: Click the "Analyze Moisture" button.
-3. **View Results**: See the moisture percentage, category, and irrigation suggestion.
+1. **Pick an Image**: Use test image or upload your own.
+2. **Click Button**: Click "Analyze Moisture".
+3. **See Result**: See if plant needs water.
 
-## Project Structure
+## Project Files
 
-```
-.
-├── app/
-│   ├── main.py              # FastAPI application
-│   ├── model.py             # TensorFlow model wrapper
-│   ├── static/              # Static assets (css, images)
-│   └── templates/           # HTML templates
-├── Dockerfile               # Docker build instructions
-├── docker-compose.yml       # Docker Compose configuration
-└── requirements.txt         # Python dependencies
-```
-
-## Technology Stack
-
-- **Backend**: FastAPI, Uvicorn
-- **ML/AI**: TensorFlow, Keras, MobileNetV2
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Containerization**: Docker
+- `app/main.py`: The web server code.
+- `app/model.py`: The AI brain code.
+- `Dockerfile`: How to build the app.
+- `docker-compose.yml`: How to run the app.
 
 ## License
 

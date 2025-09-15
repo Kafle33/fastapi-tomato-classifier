@@ -54,10 +54,10 @@ final_year_project/
 
 ### Prerequisites
 
-- **Docker** ≥ 20.10  
-- **NVIDIA GPU** with drivers installed (`nvidia-smi`)  
-- **NVIDIA Container Toolkit** installed  
-- Internet connection to pull Docker images  
+- **Docker** ≥ 20.10
+- **NVIDIA GPU** with drivers installed (`nvidia-smi`)
+- **NVIDIA Container Toolkit** installed
+- Internet connection to pull Docker images
 
 ---
 
@@ -166,12 +166,12 @@ Expected output:
 
 ## Author
 
-**Roshan Kafle**  
-- Email: roshankafle@example.com  
+**Roshan Kafle**
+- Email: roshankafle@example.com
 - GitHub: [github.com/Kafle33](https://github.com/Kafle33)
 
 ---
 
 ## License
 
-MIT License – feel free to use and modify for research or personal projects.  
+MIT License – feel free to use and modify for research or personal projects.

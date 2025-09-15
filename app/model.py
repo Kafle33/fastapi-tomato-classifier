@@ -24,4 +24,6 @@ class ImageClassifier:
         predicted_class = self.class_names[predicted_index]
         confidence = float(np.max(predictions[0]) * 100)
 
+        print(f"Predicted: {predicted_class} with confidence {confidence:.2f}%")
+
         return {"predicted_class": predicted_class, "confidence": round(confidence, 2)}

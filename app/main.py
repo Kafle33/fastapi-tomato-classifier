@@ -22,13 +22,16 @@ def home(request: Request):
 
 
 @app.post("/predict")
-async def predict(request: Request, file: UploadFile = File(...)):
+async def predict(file: UploadFile = File(...)):
     temp_path = f"temp_{file.filename}"
     with open(temp_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
     result = classifier.predict(temp_path)
     os.remove(temp_path)
-    return templates.TemplateResponse(
-        "result.html", {"request": request, "filename": file.filename, "result": result}
-    )
+
+    # Return JSON for the frontend JS
+    return {
+        "predicted_class": result["predicted_class"],
+        "confidence": result["confidence"],
+    }
